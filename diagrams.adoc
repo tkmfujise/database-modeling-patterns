@@ -1,0 +1,51 @@
+= Diagrams
+
+== IssueWorkflow
+[plantuml]
+....
+class Role {
+    ~ id
+    + name
+}
+class User {
+    ~ id
+    - role_id
+    + name
+}
+class Issue {
+    ~ id
+    - creator_id
+    - workflow_id
+    - status_id
+    - assignee_id
+    + title
+    + content
+}
+class Status {
+    ~ id
+    + name
+}
+class Workflow {
+    ~ id
+    + name
+}
+class WorkflowRule {
+    ~ id
+    - workflow_id
+    - status_id
+    - accessible_status_id
+    - role_id
+}
+hide methods
+left to right direction
+
+User::id ||--{ Issue::creator_id
+User::id ||--{ Issue::assignee_id
+Issue::workflow_id }--|| Workflow::id
+Issue::status_id }--|| Status::id
+Workflow::id ||--{ WorkflowRule::workflow_id
+Status::id ||--{ WorkflowRule::status_id
+Status::id ||--{ WorkflowRule::accessible_status_id
+User::role_id }--|| Role::id
+Role::id ||--{ WorkflowRule::role_id
+....
