@@ -1,5 +1,79 @@
 = Diagrams
 
+
+== CMS
+[plantuml]
+....
+class Site {
+    ~ id
+    + name
+    + status
+    + begin_on
+    + bg_color
+    + text_color
+}
+class Page {
+    ~ id
+    - site_id
+    + title
+    + bg_color
+    + text_color
+}
+class PagePart {
+    ~ id
+    - page_id
+    # partable_type
+    - partable_id
+    + order_number
+}
+class PartArticle {
+    ~ id
+    - site_id
+    + title
+    + content
+}
+class PartImage {
+    ~ id
+    - site_id
+    + path
+}
+class PartButtonGroup {
+    ~ id
+    - site_id
+    + name
+    + bg_color
+    + text_color
+}
+class PartButton {
+    ~ id
+    - group_id
+    + label
+    + icon
+}
+class PagePartLink {
+    ~ id
+    - page_id
+    # linkable_type
+    - linkable_id
+}
+hide methods
+left to right direction
+
+Site::id ||--{ Page::site_id
+Page::id ||--{ PagePart::page_id
+Site::id ||--{ PartArticle::site_id
+Site::id ||--{ PartImage::site_id
+Site::id ||--{ PartButtonGroup::site_id
+PartButtonGroup::id ||--{ PartButton::group_id
+PagePart::partable_id }--|| PartArticle::id
+PagePart::partable_id }--|| PartImage::id
+PagePart::partable_id }--|| PartButtonGroup::id
+Page::id ||--{ PagePartLink::page_id
+PagePartLink::linkable_id }--|| PartImage::id
+PagePartLink::linkable_id }--|| PartButton::id
+....
+
+
 == IssueWorkflow
 [plantuml]
 ....

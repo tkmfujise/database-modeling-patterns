@@ -1,0 +1,8 @@
+"id","page_id","partable_type","partable_id","order_number"
+1,1,"PartImage",1,1
+2,1,"PartButtonGroup",1,2
+3,1,"PartImage",2,3
+4,1,"PartArticle",1,4
+5,2,"PartImage",1,1
+6,2,"PartButtonGroup",1,2
+8,2,"PartArticle",2,3
