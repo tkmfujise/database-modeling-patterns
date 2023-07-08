@@ -6,3 +6,6 @@ Database modeling patterns
 
 ## IssueWorkflow
 ![IssueWorkflow](IssueWorkflow/er-diagram.png)
+
+## SpreadsheetFormatter
+![SpreadsheetFormatter](SpreadsheetFormatter/er-diagram.png)

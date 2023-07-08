@@ -123,3 +123,45 @@ Status::id ||--{ WorkflowRule::accessible_status_id
 User::role_id }--|| Role::id
 Role::id ||--{ WorkflowRule::role_id
 ....
+
+
+== SpreadsheetFormatter
+[plantuml]
+....
+class Format {
+    ~ id
+    + name
+}
+class Paper {
+    ~ id
+    - format_id
+    + name
+}
+class FormatPaper {
+    ~ id
+    - format_id
+    - paper_id
+    + order_number
+}
+class Accessor {
+    ~ id
+    - parent_id
+    + type
+    + value
+}
+class PaperAccessor {
+    ~ id
+    - paper_id
+    - accessor_id
+    + cell
+    + option
+}
+hide methods
+left to right direction
+
+Format::id ||--{ FormatPaper::format_id
+Paper::id ||--{ FormatPaper::paper_id
+Accessor ||--{ Accessor : parent_id
+Paper::id ||--{ PaperAccessor::paper_id
+PaperAccessor::accessor_id }--|| Accessor::id
+....

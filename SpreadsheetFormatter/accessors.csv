@@ -1,0 +1,8 @@
+"id","parent_id","type","value"
+1,,"string","company_name"
+2,,"checkbox","is_xxx?"
+3,,"autoshape_oval","yyy == ‘zzz’"
+4,,"array","items"
+5,4,"string","name"
+6,4,"number","amount"
+7,4,"number","price"
