@@ -1,0 +1,7 @@
+"id","operator_id","column","filter","value"
+1,2,"name","matches","^[^\*]"
+2,2,"created_at","lteq","2020-01-01 00:00:00"
+3,4,"category","eq","Type A"
+4,5,"category","eq","Type B"
+5,7,"category","eq","Type C"
+6,8,"name","matches","\sType C\s"

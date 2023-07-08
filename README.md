@@ -7,6 +7,12 @@ Database modeling patterns
 ![CMS](CMS/er-diagram.png)
 
 
+## DataImportFilter
+[[View Notebook](DataImportFilter.ipynb)]
+
+![DataImportFilter](DataImportFilter/er-diagram.png)
+
+
 ## IssueWorkflow
 [[View Notebook](IssueWorkflow.ipynb)]
 

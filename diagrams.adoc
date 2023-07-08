@@ -74,6 +74,37 @@ PagePartLink::linkable_id }--|| PartButton::id
 ....
 
 
+== DataImportFilter
+[plantuml]
+....
+class DataImportTarget {
+    ~ id
+    + name
+    + last_imported_at
+}
+class DataImportConditionOperator {
+    ~ id
+    # parent_type
+    - parent_id
+    + operation
+    + name
+}
+class DataImportCondition {
+    ~ id
+    - operator_id
+    + column
+    + filter
+    + value
+}
+hide methods
+left to right direction
+
+DataImportTarget::id ||--|| DataImportConditionOperator::parent_id
+DataImportConditionOperator ||--{ DataImportConditionOperator
+DataImportConditionOperator::id ||--{ DataImportCondition::operator_id
+....
+
+
 == IssueWorkflow
 [plantuml]
 ....
