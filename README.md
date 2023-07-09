@@ -1,6 +1,12 @@
 # database-modeling-patterns
 Database modeling patterns
 
+## Blog
+[[View Notebook](Blog.ipynb)]
+
+![Blog](Blog/er-diagram.png)
+
+
 ## CMS
 [[View Notebook](CMS.ipynb)]
 

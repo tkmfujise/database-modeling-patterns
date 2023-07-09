@@ -1,6 +1,55 @@
 = Diagrams
 
 
+== Blog
+[plantuml]
+....
+class Article {
+    ~ id
+    - category_id
+    + title
+    + content
+    - top_image
+    + status
+    + published_at
+    + updated_at
+}
+class Image {
+    ~ id
+    + path
+    + url
+}
+class Category {
+    ~ id
+    + name
+}
+class Tag {
+    ~ id
+    + name
+}
+class Tagging {
+    ~ id
+    - article_id
+    - tag_id
+}
+class ArticleMeta {
+    ~ id
+    - article_id
+    + key
+    + value
+}
+hide methods
+left to right direction
+
+Article::category_id }--|| Category::id
+Article::id }--|| Tagging::article_id
+Tagging::tag_id }--|| Tag::id
+Article::top_image ||--|| Image::url
+Article::content ... Image::url : embedded
+ArticleMeta::article_id }--|| Article::id
+....
+
+
 == CMS
 [plantuml]
 ....
