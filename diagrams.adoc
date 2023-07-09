@@ -224,6 +224,68 @@ Role::id ||--{ WorkflowRule::role_id
 ....
 
 
+== Shopping
+[plantuml]
+....
+class User {
+    ~ id
+    + name
+    + address
+    + tel
+}
+class Cart {
+    ~ id
+    - user_id
+}
+class Product {
+    ~ id
+    + name
+    + price
+}
+class CartItem {
+    ~ id
+    - cart_id
+    - product_id
+    + quantity
+}
+class Order {
+    ~ id
+    - user_id
+    + destination_address
+    + tel
+    + amount
+    + order_date
+    + status
+}
+class OrderItem {
+    ~ id
+    - order_id
+    - product_id
+    + amount
+    + quantity
+    + status
+}
+class Payment {
+    ~ id
+    - user_id
+    - order_id
+    + amount
+}
+hide methods
+left to right direction
+
+User::id ||--|| Cart::user_id
+Cart::id ||--{ CartItem::cart_id
+CartItem::product_id }--|| Product::id
+User::id ||--{ Order::user_id
+Order::id ||--{ OrderItem::order_id
+OrderItem::product_id }--|| Product::id
+User::id ||--{ Payment::user_id
+Order::id ||--|| Payment::order_id
+....
+
+
+
 == SpreadsheetFormatter
 [plantuml]
 ....

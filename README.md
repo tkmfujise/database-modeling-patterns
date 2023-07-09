@@ -25,6 +25,12 @@ Database modeling patterns
 ![IssueWorkflow](IssueWorkflow/er-diagram.png)
 
 
+## Shopping
+[[View Notebook](Shopping.ipynb)]
+
+![Shopping](Shopping/er-diagram.png)
+
+
 ## SpreadsheetFormatter
 [[View Notebook](SpreadsheetFormatter.ipynb)]
 
