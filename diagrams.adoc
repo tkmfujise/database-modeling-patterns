@@ -105,6 +105,74 @@ DataImportConditionOperator::id ||--{ DataImportCondition::operator_id
 ....
 
 
+== e-Learning
+[plantuml]
+....
+class Student {
+    ~ id
+    + name
+}
+class Teacher {
+    ~ id
+    + name
+}
+class Course {
+    ~ id
+    - teacher_id
+    + name
+}
+class Subscription {
+    ~ id
+    - student_id
+    - course_id
+}
+class Lecture {
+    ~ id
+    - course_id
+    + name
+}
+class LectureMaterial {
+    ~ id
+    - lecture_id
+    - creator_id
+    + file
+}
+class Submission {
+    ~ id
+    - student_id
+    - lecture_id
+    + status
+}
+class Review {
+    ~ id
+    - submission_id
+    - teacher_id
+    + rating
+    + comment
+}
+class Attendance {
+    ~ id
+    - lecture_id
+    - student_id
+}
+hide methods
+left to right direction
+
+Course::id ||--{ Lecture::course_id
+Course::teacher_id }--|| Teacher::id
+Subscription::student_id ||--|| Student::id
+Course::id ||--{ Subscription::course_id
+Lecture::id ||--{ LectureMaterial::lecture_id
+Teacher::id ||--{ LectureMaterial::creator_id
+Lecture::id ||--{ Submission::lecture_id
+Submission::student_id ||--|| Student::id
+Teacher::id ||--{ Review::teacher_id
+Review::submission_id ||--|| Submission::id
+Lecture::id ||--{ Attendance::lecture_id
+Attendance::student_id ||--|| Student::id
+....
+
+
 == IssueWorkflow
 [plantuml]
 ....

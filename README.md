@@ -13,6 +13,12 @@ Database modeling patterns
 ![DataImportFilter](DataImportFilter/er-diagram.png)
 
 
+## e-Learning
+[[View Notebook](e-Learning.ipynb)]
+
+![e-Learning](e-Learning/er-diagram.png)
+
+
 ## IssueWorkflow
 [[View Notebook](IssueWorkflow.ipynb)]
 
