@@ -38,6 +38,22 @@ class ArticleMeta {
     + key
     + value
 }
+class Visitor {
+    ~ id
+    # token
+    + referer
+    + landing_page
+    + user_agent
+    + browser
+    + os
+    + generated_at
+}
+class Visit {
+    ~ id
+    - visitor_id
+    - article_id
+    + created_at
+}
 hide methods
 left to right direction
 
@@ -47,6 +63,8 @@ Tagging::tag_id }--|| Tag::id
 Article::top_image ||--|| Image::url
 Article::content ... Image::url : embedded
 ArticleMeta::article_id }--|| Article::id
+Visitor::id ||--{ Visit::visitor_id
+Visit::article_id }--|| Article::id
 ....
 
 
@@ -332,7 +350,6 @@ OrderItem::product_id }--|| Product::id
 User::id ||--{ Payment::user_id
 Order::id ||--|| Payment::order_id
 ....
-
 
 
 == SpreadsheetFormatter
