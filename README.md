@@ -7,6 +7,7 @@ Database modeling patterns
 * [e-Learning](#e-Learning)
 * [IssueWorkflow](#IssueWorkflow)
 * [Shopping](#Shopping)
+* [SNS](#SNS)
 * [SpreadsheetFormatter](#SpreadsheetFormatter)
 
 
@@ -44,6 +45,12 @@ Database modeling patterns
 [[View Notebook](Shopping/Shopping.ipynb)]
 
 ![Shopping](Shopping/er-diagram.png)
+
+
+## SNS
+[[View Notebook](SNS/SNS.ipynb)]
+
+![SNS](SNS/er-diagram.png)
 
 
 ## SpreadsheetFormatter

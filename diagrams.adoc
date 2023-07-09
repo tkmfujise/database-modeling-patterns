@@ -352,6 +352,85 @@ Order::id ||--|| Payment::order_id
 ....
 
 
+== SNS
+[plantuml]
+....
+class User {
+    ~ id
+    # screen_name
+    + name
+    + password_digest
+    + joined_on
+}
+class Following {
+    ~ id
+    - follower_id
+    - followee_id
+}
+class Post {
+    ~ id
+    - user_id
+    + content
+    + created_at
+}
+class Comment {
+    ~ id
+    - post_id
+    - user_id
+    + content
+    + created_at
+}
+class Reaction {
+    ~ id
+    - user_id
+    # subject_type
+    - subject_id
+    + type
+}
+class Attachment {
+    ~ id
+    # record_type
+    - record_id
+    # name
+    - blob_id
+}
+class AttachmentBlob {
+    ~ id
+    # uuid
+    + filename
+    + content_type
+}
+class Notification {
+    ~ id
+    - user_id
+    + title
+    + content
+    # subject_type
+    - subject_id
+    + is_read
+}
+hide methods
+left to right direction
+
+Post::user_id }--|| User::id
+Comment::post_id }--|| Post::id
+Comment::user_id }--|| User::id
+User::id ||--{ Following::follower_id
+User::id ||--{ Following::followee_id
+Reaction::user_id }--|| User::id
+Reaction::subject_id }--|| Post::id
+Reaction::subject_id }--|| Comment::id
+Attachment::blob_id ||--|| AttachmentBlob::id
+Post ..> Attachment::name : image
+Post::id ||--{ Attachment::record_id
+Comment ..> Attachment::name : image
+Comment::id ||--{ Attachment::record_id
+Notification::user_id }--|| User::id
+Notification::subject_id }--|| Post::id
+....
+
+
+
 == SpreadsheetFormatter
 [plantuml]
 ....
